@@ -64,7 +64,6 @@ if __name__ == "__main__":
         for file in files:
             msgs.append(Msg(os.path.join(r,file)))
 
-    print(msgs[0].date)
     msgs.sort(reverse=True ,key = lambda msgdate: datetime.strptime(msgdate.true_date,"%a %b %d %I:%M:%S %p %z %Y\n"))
 
     combined_html = ""
