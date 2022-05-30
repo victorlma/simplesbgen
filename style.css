@@ -1,0 +1,64 @@
+:root {
+    --bgcolor:hsl(231,14%,18%);
+    --textcolor:hsl(60,12%,92%);
+    --pink:hsl(326,92%,72%);
+    --green:hsl(135,94%,64%);
+    --blue:hsl(190,93%,76%);
+    --yellow:hsl(64,91%,76%);
+}
+
+body {
+    color: var(--textcolor);
+    background-color: var(--bgcolor);
+}
+
+
+.hg {
+    color: var(--green);
+}
+
+.hp {
+    color: var(--pink);
+}
+
+.hy {
+    color: var(--yellow);
+}
+
+
+.wrapper {
+    display: flex;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.emph{
+
+    margin: 2px;
+}
+.yborder{
+
+    border: solid 1px;
+    border-color: var(--yellow);
+}
+.pborder{
+
+    border: solid 1px;
+    border-color: var(--pink);
+}
+
+.msgbox {
+    padding: 1em;
+    max-width: 500px;
+    margin: 1em auto;
+}
+
+p {
+    padding: 0;
+    margin:0;
+}
+
+.date {
+    text-align: right;
+    color: var(--yellow);
+}
