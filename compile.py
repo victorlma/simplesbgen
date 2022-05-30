@@ -17,6 +17,7 @@ class Msg:
         self.file_path = file
         self.sender = ""
         self.paragraphs = [""]
+        self.true_date = ""
         self.date = "" 
         self._setup()
 
@@ -30,12 +31,13 @@ class Msg:
             paragraph_num = 0
             for line in f:
                 if line == "\n":
-                    if self.date and self.sender:
+                    if self.true_date and self.sender:
                         paragraph_num += 1
                         self.paragraphs.append("")
                     continue
-                elif line.split()[0] in DAYS and self.date == "":
-                    self.date = line
+                elif line.split()[0] in DAYS and self.true_date == "":
+                    self.true_date = line
+                    self.date = self.true_date[0:11] + self.true_date[-5:]
                 elif line[0:2] == "[[":
                     self.sender = line[2:-3]
                 else:
@@ -62,7 +64,8 @@ if __name__ == "__main__":
         for file in files:
             msgs.append(Msg(os.path.join(r,file)))
 
-    msgs.sort(reverse=True ,key = lambda msgdate: datetime.strptime(msgdate.date,"%a %b %d %Y\n"))
+    print(msgs[0].date)
+    msgs.sort(reverse=True ,key = lambda msgdate: datetime.strptime(msgdate.true_date,"%a %b %d %I:%M:%S %p %z %Y\n"))
 
     combined_html = ""
 
